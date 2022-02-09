@@ -1,8 +1,12 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+/**
+ * Use Jest to access SharePoint via MSAL
+ *
+ * @jest-environment node
+ */
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+ import axios from "axios";
+
+ test("Access to backend", async() => {
+   const response = axios.get("http://localhost:3001")
+   expect((await response).status).toBe(200);
+ });
