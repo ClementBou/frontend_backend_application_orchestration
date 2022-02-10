@@ -4,16 +4,19 @@ pipeline {
     stages {
         stage('Docker Compose') {
             steps {
-                sh """
+                sh '''
                 /usr/local/bin/docker-compose build
-                """
+                '''
             }
         }
         stage('Test') {
             steps {
-                sh """
+                sh '''
+                cd ./frontend
+                export PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin/
+                npm install
                 npm test
-                """
+                '''
             }
         }
     }
