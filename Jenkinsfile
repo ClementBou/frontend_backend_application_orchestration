@@ -1,10 +1,13 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('NPMBuild') {
+        stage('Docker Compose') {
             steps {
-                sh "docker-compose up"
+                sh '''
+                export PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin/
+                docker-compose up
+                '''
             }
         }
     }
