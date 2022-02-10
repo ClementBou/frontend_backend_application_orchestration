@@ -4,25 +4,24 @@ pipeline {
     stages {
         stage('Docker Compose') {
             steps {
-                bat '''
-                docker-compose build
-                '''
+                sh """
+                /usr/local/bin/docker-compose build
+                """
             }
         }
         stage('Test') {
             steps {
-                bat '''
+                sh """
                 npm test
-                '''
+                """
             }
         }
     }
 
     post {
         always {
-            bat '''
-            docker-compose down
-            '''
+            sh '/usr/local/bin/docker-compose down'
         }
     }
+    
 }

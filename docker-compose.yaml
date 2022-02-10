@@ -1,16 +1,12 @@
 version: "3.8"
 services:
   backend:
-    build:
-      context: ./backend
-      dockerfile : Dockerfile.dockerfile
+    build: ./backend
     container_name: node-api
     ports:
       - 3001:3001
   frontend:
-    build: 
-      context: ./frontend
-      dockerfile : Dockerfile.dockerfile
+    build: ./frontend
     container_name: react-ui
     ports:
       - 3000:3000
