@@ -20,7 +20,7 @@ pipeline {
             }
         }
 
-        stage('Deployment on Release Branch') {
+        stage('Deployment') {
             steps {
                 sh 'git config --global user.email "clement.boulanger@efrei.net"'
                 sh 'git config --global user.name "ClementBou"'
