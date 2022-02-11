@@ -10,5 +10,3 @@ services:
     container_name: react-ui
     ports:
       - 3000:3000
-    links:
-      - "backend:be"
