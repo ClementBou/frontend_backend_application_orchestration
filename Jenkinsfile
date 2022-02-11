@@ -28,9 +28,7 @@ pipeline {
                 sh 'git pull'
                 sh 'git checkout release'
                 sh 'git merge dev'
-                withCredentials([usernamePassword(credentialsId: 'GitHub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                    sh "git push http://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ealeixoc-99/frontend-backend-orchestration.git"
-                }
+                sh "git push"
             }
         }
     }
