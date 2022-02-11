@@ -5,7 +5,7 @@ pipeline {
         stage('Docker Compose') {
             steps {
                 sh '''
-                /usr/local/bin/docker-compose build
+                /usr/local/bin/docker-compose up -d --build
                 '''
             }
         }
@@ -22,15 +22,15 @@ pipeline {
 
         stage('Deployment on Release Branch') {
             steps {
-                bat 'git config --global user.email "clement.boulanger@efrei.net"'
-                bat 'git config --global user.name "ClementBou"'
-                bat 'git branch -D release'
-                bat 'git checkout dev'
-                bat 'git pull'
-                bat 'git checkout release'
-                bat 'git merge dev'
+                sh 'git config --global user.email "clement.boulanger@efrei.net"'
+                sh 'git config --global user.name "ClementBou"'
+                sh 'git branch -D release'
+                sh 'git checkout dev'
+                sh 'git pull'
+                sh 'git checkout release'
+                sh 'git merge dev'
                 withCredentials([usernamePassword(credentialsId: 'GitHub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                    bat "git push http://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ealeixoc-99/frontend-backend-orchestration.git"
+                    sh "git push http://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ealeixoc-99/frontend-backend-orchestration.git"
                 }
             }
         }

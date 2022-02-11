@@ -16,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "set CI=true &&react-scripts test --watchAll=false --testMatch '**/src/**/*.test.js'",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "proxy": "http://node-api:3001",
