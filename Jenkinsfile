@@ -33,6 +33,7 @@ pipeline {
                     bat "git push http://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/ealeixoc-99/frontend-backend-orchestration.git"
                 }
             }
+        }
     }
 
     post {
