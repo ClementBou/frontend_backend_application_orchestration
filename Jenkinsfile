@@ -24,7 +24,6 @@ pipeline {
             steps {
                 sh 'git config --global user.email "clement.boulanger@efrei.net"'
                 sh 'git config --global user.name "ClementBou"'
-                sh 'git branch -D release'
                 sh 'git checkout dev'
                 sh 'git pull'
                 sh 'git checkout release'
