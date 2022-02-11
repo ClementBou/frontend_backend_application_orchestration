@@ -5,11 +5,10 @@ pipeline {
         stage('Docker Compose') {
             steps {
                 sh '''
-                /usr/local/bin/docker-compose build
+                export PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin/
+                docker-compose up
                 '''
             }
         }
-
     }
-    
 }
